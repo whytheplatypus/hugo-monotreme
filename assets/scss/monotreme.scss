@@ -1,0 +1,29 @@
+@import 'milligram/src/milligram';
+
+.row.row-center {
+	align-items: center;
+  	justify-content: center;
+  	text-align: center;
+}
+
+.button.button-normalcase {
+	text-transform: none;
+}
+
+.navigation {
+	width: 100%;
+	display: block;
+	height: 5.2rem;
+	line-height: 5.2rem;
+	.navigation-list {
+		list-style: none;
+		margin-bottom: 0;
+		margin-right: 5rem;
+	}
+	.navigation-item {
+		float: left;
+		margin-bottom: 0;
+		margin-left: 2.5rem;
+		position: relative;
+	}
+}

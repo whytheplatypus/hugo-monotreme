@@ -1,0 +1,23 @@
+{{ define "header" }}
+{{ with .Site.Params.avatarurl }}
+<div class="avatar">
+	<div class="row row-center">
+		<div class="column column-20">
+			<img src="{{.}}" alt="avatar" style="margin-bottom: 0;">
+		</div>
+	</div>
+</div>
+{{ end }}
+<div class="row row-center">
+	<div class="column">
+		{{ with .Site.Params.social }}
+		{{ range sort .}}
+		<a class="button button-clear button-normalcase" href="{{ .url }}" title="{{ .name }}">{{ .short }}</a>
+		{{ end }}
+		{{ end }}
+	</div>
+</div>
+{{ end }}
+{{ define "main" }}
+{{ partial "home.html" . }}
+{{ end }}
