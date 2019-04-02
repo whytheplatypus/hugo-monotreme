@@ -4,14 +4,21 @@
 			{{ range .Pages }}
 			<article class="container">
 				<h4><a href="{{ .URL }}">{{ .Name }}</a></h4>
-				A
-				{{ .Section }}
-				{{ with .Params.tags }}
-				about {{ delimit . ", " ", and " }}
+				<p>
+					A
+					{{ .Section }}
+					{{ with .Params.tags }}
+					about {{ delimit . ", " ", and " }}
+					{{ end }}
+					written on
+					{{ .Date.Format "Monday, Jan 2, 2006" }}
+					.
+				</p>
+				{{ if eq .Section "note" }}
+				<article class="container">
+					{{ .Content }}
+				</article>
 				{{ end }}
-				written on
-				{{ .Date.Format "Monday, Jan 2, 2006" }}
-				.
 			</article>
 			<hr>
 			{{ end }}
