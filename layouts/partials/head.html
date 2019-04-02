@@ -1,9 +1,11 @@
 <head>
     <meta charset="utf-8">
+	{{ template "_internal/twitter_cards.html" . }}
+	{{ template "_internal/opengraph.html" . }}
 
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
     <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
 
-{{- $styles := resources.Get "scss/monotreme.scss" | resources.ToCSS -}}
+	{{- $styles := resources.Get "scss/monotreme.scss" | resources.ToCSS -}}
     <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
 </head>
