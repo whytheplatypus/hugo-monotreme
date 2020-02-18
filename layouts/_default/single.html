@@ -2,7 +2,12 @@
 <section class="container page">
   <article>
     <header>
-      <h1>{{ .Title }}</h1>
+	    <h1>
+                 {{ .Title }}
+		 {{ with .Params.project_url }}
+		 <small><a href="{{.}}" _target=blank>&lt;src/&gt;</a></small>
+                 {{ end }}
+            </h1>
     </header>
 
     {{ .Content }}
