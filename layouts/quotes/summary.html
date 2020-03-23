@@ -1,0 +1,24 @@
+<article class="container">
+	<h4><a href="{{ .URL }}">{{ .Name }}</a></h4>
+	<p>
+		A quote
+		{{ if isset .Params "sources" }}
+			from
+		{{ end }}
+		{{ range (.GetTerms "sources") }}
+			 <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+		{{ end }}
+		{{ if isset .Params "tags" }}
+			about
+		{{ end }}
+		{{ with .Params.tags }}
+			{{ delimit . ", " ", and " }}
+		{{ end }}
+		found on
+		{{ .Date.Format "Monday, Jan 2, 2006" }}
+		.
+	</p>
+	<article class="container">
+		{{ .Content }}
+	</article>
+</article>

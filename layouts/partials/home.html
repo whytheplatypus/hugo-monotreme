@@ -2,39 +2,7 @@
 	<div class="row">
 		<div class="column column-center">
 			{{ range .Site.RegularPages }}
-			<article class="container">
-				<h4><a href="{{ .URL }}">{{ .Name }}</a></h4>
-				<p>
-					{{ if isset .Params "madlibs" }}
-						{{ index .Params.madlibs 0 }}
-					{{ else }}
-						A
-					{{ end }}
-					{{ if isset .Params "madlibs" }}
-						{{ index .Params.madlibs 1 }}
-					{{ else }}
-						{{ .Section }}
-					{{ end }}
-					{{ if isset .Params "tags" }}
-						{{ if isset .Params "madlibs" }}
-							{{ index .Params.madlibs 2 }}
-						{{ else }}
-							about
-						{{ end }}
-					{{ end }}
-					{{ with .Params.tags }}
-						{{ delimit . ", " ", and " }}
-					{{ end }}
-					written on
-					{{ .Date.Format "Monday, Jan 2, 2006" }}
-					.
-				</p>
-				{{ if eq .Section "note" }}
-				<article class="container">
-					{{ .Content }}
-				</article>
-				{{ end }}
-			</article>
+				{{ .Render "summary" }}
 			<hr>
 			{{ end }}
 		</div>

@@ -1,0 +1,13 @@
+{{ define "main" }}
+<section class="container page">
+    <article>
+	    <header>
+		    <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+		    <p>{{ .Params.authors }}</p>
+            </header>
+	    {{ range .Pages }}
+		{{ .Content }}
+	    {{ end }}
+    </article>
+</section>
+{{ end }}
