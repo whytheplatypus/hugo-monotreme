@@ -1,7 +1,14 @@
 <article class="container">
 	<h4><a href="{{ .URL }}">{{ .Name }}</a></h4>
 	<p>
-		{{ .Description }}
+		A
+		{{ .Section }}
+		{{ if isset .Params "tags" }}
+			about
+		{{ end }}
+		{{ with .Params.tags }}
+			{{ delimit . ", " ", and " }}
+		{{ end }}
 		written on
 		{{ .Date.Format "Monday, Jan 2, 2006" }}
 		.
